@@ -9,10 +9,29 @@ values = {
 }
 
 def to_roman(n: int) -> str:
-    result = values[n]
+    if n <= 3:
+        result = n * values[1]
+    elif n == 4: 
+        result = values[1] + values[5]
+    elif n < 9:
+        result = values[5] + (n - 5) * values[1]
+    elif n == 9:
+        result = values[1] + values[10]
+    else:
+        result = values[n]
+    return result
+        
+
+
+
+
+    
+#   result = values[n]
 
 # Los ifs no son necesarios solo son para mostrar como se realizó antes de implementar
 # el diccionario
+
+"""
     if n == 1:
         result = 'I'
     elif n == 5:
@@ -29,3 +48,4 @@ def to_roman(n: int) -> str:
         result = 'M'
     
     return result
+"""
