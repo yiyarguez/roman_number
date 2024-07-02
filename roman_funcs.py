@@ -54,9 +54,52 @@ def to_roman(n: int) -> str:
         result = values[50] + (n//10 - 5) * values[10]  
     elif n == 90:
         result = values[10] + values[100] #'X' + 'C'  
+    elif n <= 300:
+        result = n//100 * values[100]  # n//10 da como resultado un numero entero, n / 10 nos da un resultado con decimales
+    elif n == 400:
+        result = values[100] + values[500]
+    elif n < 900:
+        result = values[500] + (n//100 - 500) * values[100] 
+    elif n == 900:
+        result = values[100] + values[1000]
+    elif n == 3000:
+        result = n//1000 * values[1000] #'X' + 'C'  
     else:
         result = values[n]
     return result
+
+
+def dividir_en_digitos(n:int):
+    """
+    TODO: Evitar que entren números mayores de 3999. Lanzar exception
+
+    """
+    cad = f"{n:04d}"
+    millares = 0
+    centenas = 0
+    decenas = 0
+    unidades = 0
+
+#Ejemplo: 2024
+    millares = int(cad[0]) * 1000 # 2000
+    centenas = int(cad[1]) * 100 # 0
+    decenas = int(cad[2]) * 10 # 20
+    unidades = int(cad[3]) * 1 # 4
+
+    return[millares,centenas,decenas,unidades]
+
+
+def digitos_a_romanos(lista):
+    result = ""
+    for numero in lista:
+        result += to_roman(numero)
+    return result
+
+def arabigo_a_romano(n:int):
+    lista = dividir_en_digitos(n)
+    return digitos_a_romanos(lista)
+
+
 
 
 

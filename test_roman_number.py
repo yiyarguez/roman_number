@@ -1,4 +1,4 @@
-from roman_funcs import to_roman
+from roman_funcs import to_roman, dividir_en_digitos,arabigo_a_romano
 
 def test_romanos_simples():
     assert to_roman(1) == 'I'
@@ -32,7 +32,10 @@ def test_romanos_10_al_90():
     assert to_roman(90) == 'XC'         
 
 
-"""
-def test_romanos_compuestos_sumas():
-    assert to_roman(6) == "VI"
-"""
+def test_dividir_en_digitos():
+    assert dividir_en_digitos(34) == [0,0,30,4]
+    assert dividir_en_digitos(2024) == [2000,0,20,4]
+    assert dividir_en_digitos(100) == [0,100,0,0]
+
+def test_cualquier_romano():
+    assert arabigo_a_romano(1999) == 'MCMXCIX'

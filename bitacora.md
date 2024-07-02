@@ -23,6 +23,11 @@ Romanos del 10 al 90:
 * 40 -> 'XL'
 * 50 -> 'L'
 
+Después de la investigación hemos decidido que un buen algoritmo es:
+1. Dividir el número (siempre menor de 4000) en millares, centenas, decenas y unidades. Poner en una lista
+2. Procesar cada item de la lista tranformandolo en romano. Tendré que retocar el algoritmo que ya tengo.
+3. Concatenar de mayor a menor los simbolos romanos obtenidos.
+
 
 
 
